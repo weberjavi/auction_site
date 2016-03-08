@@ -8,15 +8,19 @@ class UsersController < ApplicationController
     #Try to save it
     if @user.save 
       flash[:notice] = "User created correctly"
-      redirect_to user(@user.id)
+      redirect_to users
     else
       flash[:alert] = "Something went wrong"
       render "new"
     end
   end
 
-  def show
+  def index
     @users = User.last_created_users(30)
+  end
+
+  def show
+    @user = User.find_by(id: params[:id]) #|| render_404(params)
   end
 
   def destroy

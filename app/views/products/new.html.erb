@@ -1,0 +1,14 @@
+<h2>Add a product to sell</h2>
+
+<%= form_for [@user,@product] do |f| %>
+  <%= f.label "Product title" %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br>
+  <%= f.label "Bid deadline" %>
+  <%= f.date_field :date %>
+
+  <%= f.submit "Add" %>
+<% end %>

@@ -1,0 +1,9 @@
+<h2>This are the last added products of <%= @user.name%>.</h2>   
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      Title: <%= product.title %> 
+       <%= link_to("Product details", user_product_path(@user.id, product.id))%>
+    </li>
+  <% end %>
+</ul>
